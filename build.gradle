@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+application {
+    // Dummy launcher for Gradle compatibility
+    mainClass = 'launcher.MainDummy'
+}
+
+tasks.named('run') {
+    doFirst {
+        if (project.hasProperty("main")) {
+            mainClass.set(project.property("main"))
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+}
+
+test {
+    useJUnitPlatform()
+}
