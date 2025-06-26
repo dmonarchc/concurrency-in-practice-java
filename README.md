@@ -16,17 +16,26 @@ The project is organized by thematic chapters. Each folder includes practical ex
 
 ```
 concurrency-in-practice-java/
-├── chapter01_thread_safety/         # Immutability, thread safety
-├── chapter02_sharing_objects/       # Publishing and escaping references
-├── chapter03_visibility_atomicity/  # Volatile, synchronization, atomicity
-├── chapter04_composing_objects/     # Safe composition
-├── chapter05_building_blocks/       # Concurrent collections, semaphores
-├── chapter06_task_execution/        # ExecutorService, Callable, Future
-├── chapter07_cancellation_interruption/ # Interruptions, task cancellation
-├── chapter08_thread_pools/          # Advanced thread pool configuration
-├── chapter09_gui_applications/      # Concurrency in GUIs
-├── chapter10_web_applications/      # Web applications with concurrency
-├── utils/                           # Shared utility classes
+├── src/
+│   └── main/
+│       └── java/
+│           ├── chapter01_thread_safety/         # Immutability, thread safety
+│           ├── chapter02_sharing_objects/       # Publishing and escaping references
+│           ├── chapter03_visibility_atomicity/  # Volatile, synchronization, atomicity
+│           ├── chapter04_composing_objects/     # Safe composition
+│           ├── chapter05_building_blocks/       # Concurrent collections, semaphores
+│           ├── chapter06_task_execution/        # ExecutorService, Callable, Future
+│           ├── chapter07_cancellation_interruption/ # Interruptions, task cancellation
+│           ├── chapter08_thread_pools/          # Advanced thread pool configuration
+│           ├── chapter09_gui_applications/      # Concurrency in GUIs
+│           ├── chapter10_web_applications/      # Web applications with concurrency
+│           ├── utils/                           # Shared utility classes
+│           └── launcher/                        # Dummy main class for Gradle
+├── build.gradle
+├── settings.gradle
+├── gradlew / gradlew.bat
+├── gradle/
+├── Makefile
 └── README.md
 ```
 
@@ -39,11 +48,24 @@ concurrency-in-practice-java/
    git clone https://github.com/your_username/concurrency-in-practice-java.git
    ```
 
-2. Open the project in your preferred IDE (IntelliJ, VSCode, Eclipse).
+2. Open the project in your preferred IDE (IntelliJ, VSCode, Eclipse) or use the terminal.
 
-3. Run any class with a `main()` method from the chapters.
+3. Compile the project:
+   ```bash
+   ./gradlew build
+   ```
 
-4. You can also compile it using `javac` from the terminal if not using an IDE.
+4. Run any example class:
+   ```bash
+   ./gradlew run -Pmain=chapter03_visibility_atomicity.AtomicCounter
+   ```
+
+5. (Optional) Run tests (when implemented):
+   ```bash
+   ./gradlew test
+   ```
+
+You can also use the provided `Makefile` to simplify some of these commands.
 
 ---
 
@@ -64,3 +86,4 @@ ISBN: 0321349601
 ---
 
 > ⚠️ **Note:** This repository does not include the book's text. Only examples and complementary material for educational purposes.
+
